@@ -3,5 +3,5 @@
  * @return {boolean}
  */
 var isPalindrome = function(x) {
-    
+
 };
