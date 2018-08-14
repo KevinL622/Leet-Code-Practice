@@ -3,7 +3,7 @@
  * @return {boolean}
  */
 
-//this solution checks if a number is a palindrome without using any strings
+//this solution checks if an integer is a palindrome without using any strings
 var isPalindrome = function(x) {
     //check for negative inputs
     if (x < 0) {
