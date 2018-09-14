@@ -7,6 +7,45 @@ If there is no common prefix, return an empty string "".
 note all given inputs are lowercase.
 */
 
+/*
+Approaches
+
+1) Horizontal Scanning
+O(s) time complexity where s is the sum of all the characters in all strings
+0(1) space complexity
+var longestCommonPrefix = function(strs) {
+    if(strs.length === 0 || strs == null){return "";}
+
+    var firstWord = strs[0];
+
+    for(var i = 1; i<strs.length; i++){
+        while(strs[i].indexOf(firstWord) != 0){
+            firstWord = firstWord.substr(0, firstWord.length - 1);
+            if(firstWord.length == 0){return "";}
+        }
+    }
+    return firstWord;
+};
+
+2) Vertical Scanning
+public String longestCommonPrefix(String[] strs) {
+    if (strs == null || strs.length == 0) return "";
+    for (int i = 0; i < strs[0].length() ; i++){
+        char c = strs[0].charAt(i);
+        for (int j = 1; j < strs.length; j ++) {
+            if (i == strs[j].length() || strs[j].charAt(i) != c)
+                return strs[0].substring(0, i);
+        }
+    }
+    return strs[0];
+}
+3) Divide and conquer
+takes up memory
+
+4)Binary Search
+O(S*logN)
+O(1)
+
 /**
  * @param {string[]} strs
  * @return {string}
