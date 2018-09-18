@@ -32,5 +32,22 @@ within the range from 1 to 3999.
  * @return {number}
  */
 var romanToInt = function(s) {
-
+    //intitialize number for counting
+    var output = 0;
+    var numbers = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+    var roman = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"];
+    for (var i = 0; i < numbers.length; i++){
+        while (s.indexOf(roman[i]) === 0){
+            output += numbers[i];
+            s = s.replace(roman[i], '');
+        }
+    }
+    console.log(output);
+    return output;
 };
+
+romanToInt("LXXXVII"); // returns 87
+romanToInt("XLIII"); //  returns 43
+romanToInt("XXII"); // returns 22
+romanToInt("DCCVII"); // returns 707
+romanToInt("LXIX"); // returns 69
